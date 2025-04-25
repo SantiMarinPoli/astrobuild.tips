@@ -1,15 +1,49 @@
 ---
 import Card from '../components/Card.astro';
+import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+
+const allPost = await Astro.glob("../content/*.md")
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Card
-		title="Hola Astro",
-		time='2025-04-28',
-		tags="javacript"
-	/>
+<Layout title="Welcome to Astro.">
+	<main>
+		<Header title="AstroBuild.tips" />
+		<Hero/>
+
+		<ul role="list" class="link-card-grid">
+			{
+				allPost.map((item) => (
+						<Card
+						title={item?.frontmatter.title}
+						time={item?.frontmatter.pubDate}
+						tags={item?.frontmatter.tags}
+					/>
+				))
+			}
+		
+		</ul>
+
+	</main>
+
 </Layout>
+
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
