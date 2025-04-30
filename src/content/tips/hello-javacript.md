@@ -2,7 +2,7 @@
 title: "Hello Javascript"
 pubDate: 2025-04-12
 description: "Hello this is my first recomendation"
-image: "https://picsum.photos/200"
+image: "https://picsum.photos/450/300"
 tags: ["astro", "javascript"]
 layout: "../../layouts/Posts.astro"
 

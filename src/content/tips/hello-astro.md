@@ -2,7 +2,7 @@
 title: "Hello Astro"
 pubDate: 2024-05-08
 description: " Hello this is my first recommendation"
-image: "https://picsum.photos/200"
+image: "https://picsum.photos/450/300"
 tags: ["astro", "javascript"]
 layout: "../../layouts/Posts.astro"
 ---
