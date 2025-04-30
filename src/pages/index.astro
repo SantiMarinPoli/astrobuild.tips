@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 
-const allPost = await Astro.glob("../content/*.md")
+const allPost = await Astro.glob("../content/tips/*.md")
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -22,6 +22,7 @@ const allPost = await Astro.glob("../content/*.md")
 						title={item?.frontmatter.title}
 						time={item?.frontmatter.pubDate}
 						tags={item?.frontmatter.tags}
+						slug={item?.frontmatter.slug}
 					/>
 				))
 			}

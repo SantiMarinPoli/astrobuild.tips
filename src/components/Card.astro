@@ -1,23 +1,24 @@
 ---
+import FormatDate from '../utils/FormatDate';
 export interface Props {
     title: string;
     time: string;
     tags: string[];
+    slug: string;
 }
 
-const {title, time, tags} = Astro.props;
-const event = new  Date(time);
-const date = event.toDateString().slice(0,-4);
+const {title, time, tags, slug} = Astro.props;
+const date = FormatDate(time);
 ---
 
 <article
   class="rounded-[10px] border border-gray-200 bg-white px-4 pt-12 pb-4 dark:border-gray-700 dark:bg-gray-900"
 >
-  <time datetime="2022-10-10" class="block text-xs text-gray-500 dark:text-gray-400">
-    {time}
+  <time datetime={date} class="block text-xs text-gray-500 dark:text-gray-400">
+    {date}
   </time>
 
-<a href="#">
+<a href={`/posts/${slug}`}>
     <h3 class="mt-0.5 text-lg font-medium text-gray-900 dark:text-white">
       {title}
     </h3>
@@ -33,7 +34,6 @@ const date = event.toDateString().slice(0,-4);
         </span>
       ))
     }
-
 
   </div>
 </article>
